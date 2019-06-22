@@ -1,51 +1,22 @@
-import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { TextInput } from 'react-native-paper';
+import React from 'react'
+import { StyleSheet, Platform, Image, Text, View } from 'react-native'
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
+// import the different screens
+import Loading from './Loading'
+import SignUp from './SignUp'
+import Login from './Login'
+import Main from './Main'
+import ImageUpload from './ImageUpload'
 
-
-export default class MyComponent extends Component {
-  
-  constructor() {
-  
-    super();
-
-    this.state = {
-      text: ''
-    }
-  
-  }
-
-  render() {
-
-    return (
-      <View style={styles.container }>
-
-        
-        <Text>
-          test post pls ignore
-        </Text>
-        < TextInput style={styles.text}
-          label='Email'
-          value={this.state.text}
-          onChangeText={text => this.setState({ text })}
-        />
-      </View>
-
-    );
-
-  };
-}
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    // justifyContent: 'center',
+// create our app's navigation stack
+export default createAppContainer(createSwitchNavigator(
+  {
+  ImageUpload,
+  Loading,
+  Login,
+  SignUp
   },
-  text: {
-    marginTop: 10,
-    width: '100%'
+  {
+    initialRouteName: 'Loading',
   }
-});
+));
