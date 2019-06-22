@@ -1,6 +1,8 @@
 // Main.js
 import React from 'react'
+import firebase from 'firebase'
 import { StyleSheet, Platform, Image, Text, View } from 'react-native'
+
 export default class Main extends React.Component {
     state = { currentUser: null }
     render() {
@@ -13,6 +15,11 @@ export default class Main extends React.Component {
             </View>
         )
     }
+
+    componentDidMount() {
+        const { currentUser } = firebase.auth() 
+        this.setState({currentUser})
+    }
 }
 const styles = StyleSheet.create({
     container: {
@@ -20,3 +27,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
+})

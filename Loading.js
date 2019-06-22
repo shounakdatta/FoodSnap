@@ -1,6 +1,9 @@
 // Loading.js
 import React from 'react'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import firebase from 'firebase'
+import SignUp from './SignUp';
+
 export default class Loading extends React.Component {
     render() {
         return (
@@ -10,6 +13,13 @@ export default class Loading extends React.Component {
             </View>
         )
     }
+
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged(user => {
+            this.props.navigation.naviate(user ? 'Main' : 'SignUp')
+        })
+    }
+
 }
 const styles = StyleSheet.create({
     container: {
@@ -18,3 +28,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     }
 })
+
