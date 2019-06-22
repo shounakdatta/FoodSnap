@@ -2,7 +2,6 @@
 import React from 'react'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 import firebase from 'firebase'
-import SignUp from './SignUp';
 
 export default class Loading extends React.Component {
     render() {
@@ -16,7 +15,7 @@ export default class Loading extends React.Component {
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.naviate(user ? 'Main' : 'SignUp')
+            this.props.navigation.navigate(user ? 'ImageUpload' : 'SignUp')
         })
     }
 
