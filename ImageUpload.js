@@ -35,7 +35,7 @@ export default class ImageUploadScreen extends Component {
     takePicture = async () => {
         await Permissions.askAsync(Permissions.CAMERA)
         const { uri } = await ImagePicker.launchCameraAsync({
-            allowsEditing: true,
+            allowsEditing: false,
         });
         const name = uri.split('/').slice(-1)[0]
         const { uri: compressedUri } = await ImageManipulator.manipulateAsync(
@@ -101,8 +101,8 @@ export default class ImageUploadScreen extends Component {
 
 
     signOutUser = () => {
-        firebase.auth().signOut().then(function(){},
-            function(error) {});
+        firebase.auth().signOut().then(function () { },
+            function (error) { });
     }
 
     render() {
@@ -117,8 +117,8 @@ export default class ImageUploadScreen extends Component {
                     <Button onPress={this.removeImage}>Remove</Button>
                     <Button onPress={this.download}>Download</Button>
                 </View>
-                <View style={{ width: '100%'}}>
-                    <Button style={{ alignText: 'center'}} 
+                <View style={{ width: '100%' }}>
+                    <Button style={{ alignText: 'center' }}
                         onPress={this.signOutUser}
                         onPress={() => this.props.navigation.navigate('Login')}>
                         Sign Out
