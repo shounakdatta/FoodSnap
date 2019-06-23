@@ -5,16 +5,15 @@ import { createStackNavigator, createSwitchNavigator, createAppContainer } from 
 import Loading from './Loading'
 import SignUp from './SignUp'
 import Login from './Login'
-import Main from './Main'
 import ImageUpload from './ImageUpload'
 
 // create our app's navigation stack
 export default createAppContainer(createSwitchNavigator(
   {
-  ImageUpload,
-  Loading,
-  Login,
-  SignUp
+    ImageUpload,
+    Loading,
+    Login,
+    SignUp
   },
   {
     initialRouteName: 'Loading',
