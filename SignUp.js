@@ -1,7 +1,8 @@
 // SignUp.js
 import React from 'react'
-import firebase from './firebase'
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native'
+import { Button, TextInput } from 'react-native-paper';
+import firebase from './firebase';
 
 
 export default class SignUp extends React.Component {
@@ -10,37 +11,56 @@ export default class SignUp extends React.Component {
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => this.props.navigation.navigate('Main'))
+            .then(() => this.props.navigation.navigate('ImageUpload'))
             .catch(error => this.setState({ errorMessage: error.message }))
     }
     render() {
         return (
+
             <View style={styles.container}>
-                <Text>Sign Up</Text>
+            
+                <Text style={{fontSize: 30}}>Sign Up</Text>
                 {this.state.errorMessage &&
-                    <Text style={{ color: 'red' }}>
-                        {this.state.errorMessage}
-                    </Text>}
+
+                <Text style={{ color: 'red' }}>
+                    {this.state.errorMessage}
+                </Text>}
+            
                 <TextInput
-                    placeholder="Email"
-                    autoCapitalize="none"
                     style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="Email"
                     onChangeText={email => this.setState({ email })}
                     value={this.state.email}
                 />
+            
                 <TextInput
                     secureTextEntry
-                    placeholder="Password"
-                    autoCapitalize="none"
                     style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="Password"
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
                 />
-                <Button title="Sign Up" onPress={this.handleSignUp} />
-                <Button
-                    title="Already have an account? Login"
-                    onPress={() => this.props.navigation.navigate('Login')}
-                />
+            
+                <Button 
+                    title="Sign Up" 
+                    style={styles.button}
+                    mode='contained'
+                    onPress={this.handleSignUp}
+                >
+                    Sign Up
+                </Button>
+            
+                <TouchableWithoutFeedback
+                    onPress={() =>
+                    this.props.navigation.navigate('Login')}>
+                    <Text style = {styles.touchable}>
+                        Already have an account? Login
+                    </Text>                        
+                
+                </TouchableWithoutFeedback>
+            
             </View>
         )
     }
@@ -49,13 +69,34 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    button: {
+        marginTop: '5%',
+        height: '8%',
+        width: '80%'
+    },
+
+    touchable: {
+        color: '#6200ea',
+        marginTop: '5%',
+        height: '8%',
+        width: '80%',
+        textAlign: 'center'
+    },
+
+    container: {
+        padding: '10%',
+        flex: 1,
+        elevation: 5,
         alignItems: 'center'
     },
+
     textInput: {
-        height: 40,
+        height: '10%',
         width: '90%',
-        borderColor: 'gray',
         borderWidth: 1,
-        marginTop: 8
+        marginTop: '2%',
     }
 })

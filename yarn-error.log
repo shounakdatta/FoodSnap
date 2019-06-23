@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add exp-location
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-navigation-transitions
 
 PATH: 
   C:\Program Files\Heroku\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\Shounak PC\.windows-build-tools\python27\;C:\Program Files\nodejs\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\Shounak PC\Documents\GitHub\TensorFlowJS\ru-for-real\node_modules\windows-build-tools\node_modules\.bin;C:\Users\Shounak PC\Documents\GitHub\TensorFlowJS\ru-for-real\node_modules\.bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\Shounak PC\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\Shounak PC\AppData\Local\Programs\Python\Python37-32\;C:\Users\Shounak PC\AppData\Local\Microsoft\WindowsApps;C:\Users\Shounak PC\AppData\Local\atom\bin;C:\Users\Shounak PC\AppData\Local\GitHubDesktop\bin;C:\Users\Shounak PC\AppData\Roaming\npm;C:\Users\Shounak PC\AppData\Local\Microsoft\WindowsApps;C:\Users\Shounak PC\AppData\Local\Yarn\bin;C:\Users\Shounak PC\AppData\Local\Programs\Microsoft VS Code\bin
@@ -24,7 +24,7 @@ Trace:
       at Object.onceWrapper (events.js:273:13)
       at IncomingMessage.emit (events.js:187:15)
       at endReadableNT (_stream_readable.js:1094:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+      at process._tickCallback (internal/process/next_tick.js:63:1
 
 npm manifest: 
   {

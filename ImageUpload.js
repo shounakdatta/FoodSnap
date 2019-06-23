@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import * as ImageManipulator from 'expo-image-manipulator';
 import * as Location from 'expo-location'
-import { storage } from './firebase'
+import firebase, { storage } from './firebase'
 
 const API_HOST = 'https://shounakdatta.api.stdlib.com/food-snap@dev/PostToSlack/'
 
@@ -99,9 +99,15 @@ export default class ImageUploadScreen extends Component {
         )
     }
 
+
+    signOutUser = () => {
+        firebase.auth().signOut().then(function(){},
+            function(error) {});
+    }
+
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.imageContainer}>
                 <Image style={styles.image} source={{ uri: this.state.image }} />
                 <View style={styles.row}>
                     <Button onPress={this.takePicture}>Camera</Button>
@@ -110,6 +116,13 @@ export default class ImageUploadScreen extends Component {
                 <View style={styles.row}>
                     <Button onPress={this.removeImage}>Remove</Button>
                     <Button onPress={this.download}>Download</Button>
+                </View>
+                <View style={{ width: '100%'}}>
+                    <Button style={{ alignText: 'center'}} 
+                        onPress={this.signOutUser}
+                        onPress={() => this.props.navigation.navigate('Login')}>
+                        Sign Out
+                    </Button>
                 </View>
             </View>
         );
@@ -133,7 +146,8 @@ const styles = StyleSheet.create({
         margin: 15,
         backgroundColor: '#dddddd',
     },
-    container: {
+
+    imageContainer: {
         flex: 1,
         backgroundColor: '#ffffff',
         alignItems: 'center',
