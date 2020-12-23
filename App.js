@@ -8,13 +8,15 @@ import SignUp from './SignUp'
 import Login from './Login'
 import ImageUpload from './ImageUpload'
 
+console.disableYellowBox = true
+
 // create our app's navigation stack
 export default createAppContainer(createSwitchNavigator(
   {
-  ImageUpload,
-  Loading,
-  SignUp,
-  Login
+    ImageUpload,
+    Loading,
+    SignUp,
+    Login
   },
   {
     initialRouteName: 'Loading',

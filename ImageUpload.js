@@ -17,16 +17,21 @@ export default class ImageUploadScreen extends Component {
 
     componentDidMount() {
         this.getLocation().then(
-            ({ latitude, longitude }) => this.setState(
-                { location: { latitude, longitude } }
-            )
+            (data) => {
+                this.setState({
+                    location: {
+                        latitude: data.coords.latitude,
+                        longitude: data.coords.longitude
+                    }
+                })
+            }
         )
     }
 
     getLocation = async () => {
         const { status } = await Permissions.askAsync(Permissions.LOCATION);
         if (status === 'granted') {
-            return Location.getCurrentPositionAsync({ enableHighAccuracy: true });
+            return await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
         } else {
             throw new Error('Location permission not granted');
         }
@@ -80,7 +85,6 @@ export default class ImageUploadScreen extends Component {
                     }
                 ).then(res => res.json())
                 console.log(response);
-
             }
         )
     }
@@ -95,7 +99,7 @@ export default class ImageUploadScreen extends Component {
     download = () => {
         const { name } = this.state
         storage.ref('images').child(name).getDownloadURL().then(
-            uri => console.log(uri)
+            uri => this.setState({ image: uri })
         )
     }
 
